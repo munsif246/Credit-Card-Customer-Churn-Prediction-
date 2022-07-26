@@ -1,0 +1,97 @@
+
+
+
+
+body { 
+	font-family: 'Open Sans', sans-serif;
+	width:100%;
+	color: black;
+	font-size: 18px;
+	text-align:center;
+	letter-spacing:1.2px;
+	background-image:url(form.jpg);
+	opacity: 0.9;
+
+}
+.login { 
+	position: absolute;
+	top: 28%;
+	left: 20%;
+	margin: -150px 0 0 -150px;
+	width:80%;
+	overflow-y:auto;
+	overflow-x:hidden;
+	background:rgba(255,255,255,0.9);
+	padding-left: 10px;
+	padding-right: 10px;
+	border-radius:5%;
+	padding-bottom:20px;
+}
+
+.login h1 { color: black; text-shadow: 0 0 10px rgba(0,0,0,0.3); letter-spacing:1px; text-align:center; }
+
+input { 
+	margin-bottom: 10px; 
+	background: rgba(0,0,0,0.3);
+	border: none;
+	outline: none;
+	padding: 10px;
+	font-size: 10px;
+	color: white;
+	padding-bottom:20px;
+	text-shadow: 1px 1px 1px rgba(0,0,0,0.3);
+	border: 1px solid rgba(0,0,0,0.3);
+	border-radius: 4px;
+	box-shadow: inset 0 -5px 45px rgba(100,100,100,0.2), 0 1px 1px rgba(255,255,255,0.2);
+	-webkit-transition: box-shadow .5s ease;
+	-moz-transition: box-shadow .5s ease;
+	-o-transition: box-shadow .5s ease;
+	-ms-transition: box-shadow .5s ease;
+	transition: box-shadow .5s ease;
+	
+}
+input:focus { box-shadow: inset 0 -5px 45px rgba(100,100,100,0.4), 0 1px 1px rgba(255,255,255,0.2); }
+
+input[type=text] {
+    background: transparent;
+    border: none;
+    border-bottom: 1px solid #000000;
+}
+
+.submitbtn {
+	padding: 10px;
+	background: blue;
+	width:200px;
+	border:2px solid blue;
+	border-radius:60px;
+}
+
+
+.search_categories{
+  font-size: 13px;
+  padding: 10px 8px 10px 14px;
+  background: #fff;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  width: 125px;
+  margin-left:5px;
+
+  
+}
+.search_categories .select{
+  width: 80%;
+  background:url('arrow.png');
+  background-position:80%;
+}
+
+.search_categories .select select{
+  background: transparent;
+  line-height: 1;
+  border: 0;
+  padding: 0;
+  border-radius: 0;
+  width: 120%;
+  position: relative;
+  z-index: 10;
+  font-size: 1em;
+}

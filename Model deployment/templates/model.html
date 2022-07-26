@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Predict Churn</title>
+	<link type="text/css" rel="stylesheet" href="{{ url_for('static', filename='model.css') }}" />
+</head>
+<body>
+	
+	<div class="login">
+	<h1>Churn Predictor</h1>
+
+     <!-- Main Input For Receiving Query to our ML -->
+    <form action="{{ url_for('predict')}}"method="post"> <!--{{ url_for('predict')}}- connecting to @app.route('/predict',methods=['POST'])-->
+    	<table border=0>
+        	<tr>
+        	<th><label>Customer Age:</label></th>
+        	<th><input type="text" name="Age" placeholder="Age" required="required" /></th>
+        	<th><label>Gender:</label></th>
+        	<th><INPUT TYPE="RADIO" NAME="Gender" VALUE=1>Male
+        	<INPUT TYPE="RADIO" NAME="Gender" VALUE=0>Female</th>
+        	</tr>
+        	<tr>
+        	<th><label>Number of dependents:</label></th>
+        	<th><input type="text" name="Dependent_count" placeholder="Dependent_count" required="required" /></th>
+        	<th><label>Education Level:</label></th>
+        	<th><div class="search_categories">
+					<div class="select">
+			<select name="EduLevel" id="EduLevel">
+				<option value=1>Uneducated</option>
+				<option value=2>High School</option>
+				<option value=3>College</option>
+				<option value=4>Graduate</option>
+				<option value=5>Post-Graduate</option>
+				<option value=6>Doctorate</option>
+				</select>
+				</div>
+				</div>
+			</th>
+        	</tr>
+			<tr>
+        	<th><label>Income Category:</label></th>
+        	<th><div class="search_categories">
+					<div class="select">
+			<select name="Income" class="Income">
+				<option value=1>Less than $40K</option>
+				<option value=2>$40K - $60K</option>
+				<option value=3>$60K - $80K</option>
+				<option value=4>$80K - $120K</option>
+				<option value=5>$80K - $120K</option>
+				<option value=6>$120K +</option>
+				</select>
+				</div>
+				</div>
+			</th>
+			<th><label>Period of relationship:</label></th>
+        	<th><input type="text" name="Months_on_book" placeholder="Months_on_book" required="required" /></th>
+        	</tr>
+			<tr>
+        	<th><label>Total number of products:</label></th>
+        	<th><input type="text" name="Total_Relationship_Count" placeholder="Total_Relationship_Count" required="required" /></th>
+        	<th><label>Months Inactive in last 12 months:</label></th>
+        	<th><input type="text" name="Months_Inactive_12_mon" placeholder="Months_Inactive_12_mon" required="required" /></th>
+        	</tr>
+			<tr>
+			<th><label>contacts in last 12 months:</label></th>
+        	<th><input type="text" name="Contacts_Count_12_mon" placeholder="Contacts_Count_12_mon" required="required" /></th>
+			<th><label>Credit Limit:</label></th>
+        	<th><input type="text" name="Credit_Limit" placeholder="Credit_Limit" required="required" /></th>
+        	</tr>
+			<tr>
+			<th><label>Total Revolving Balance:</label></th>
+        	<th><input type="text" name="Total_Revolving_Bal" placeholder="Total_Revolving_Bal" required="required" /></th>
+			<th><label>Avg Open To Buy:</label></th>
+        	<th><input type="text" name="Avg_Open_To_Buy" placeholder="Avg_Open_To_Buy" required="required" /></th>
+        	</tr>
+			<tr>
+			<th><label>Change in transaction count:</label></th>
+        	<th><input type="text" name="Total_Ct_Chng_Q4_Q1" placeholder="Total_Ct_Chng_Q4_Q1" required="required" /></th>
+			<th><label>Change in transaction amount:</label></th>
+        	<th><input type="text" name="Total_Amt_Chng_Q4_Q1" placeholder="Total_Amt_Chng_Q4_Q1" required="required" /></th>
+        	</tr>
+			<tr>
+			<th><label>Total transaction amount:</label></th>
+        	<th><input type="text" name="Total_Trans_Amt" placeholder="Total_Trans_Amt" required="required" /></th>
+        	
+			<th><label>Total transactions count:</label></th>
+        	<th><input type="text" name="Total_Trans_Ct" placeholder="Total_Trans_Ct" required="required" /></th>
+        	</tr>
+			<tr>
+			<th><label>Average card utilization ratio:</label></th>
+        	<th><input type="text" name="Avg_Utilization_Ratio" placeholder="Avg_Utilization_Ratio" required="required" /></th>
+        	
+        	<th><label>Marital Status:</label></th>
+        	<th><div class="search_categories">
+					<div class="select">
+			<select name="Marital" id="Marital">
+				<option value=1>Single</option>
+				<option value=0>Married</option>
+				<option value=0>Divorced</option>
+				<option value=0>Unknown</option>
+				</select>
+				</div>
+				</div>
+			</th>
+        	</tr>
+        	
+        	
+            <tr>
+        	
+        	 
+			<tr>
+        	<th><label>Type of the Card:</label></th>
+        	<th><div class="search_categories">
+					<div class="select">
+					<center>
+			<select name="Card" id="Card">
+				<option value=1>Blue</option>
+				<option value=0>Silver</option>
+				<option value=0>Gold</option>
+				<option value=0>Platinum</option>
+				</select>
+				</center>
+				</div>
+				</div>
+			</th>
+        	</tr>
+        	
+        	<input type="hidden" id="1" name="1" value=0>
+        	<input type="hidden" id="custId1" name="custId1" value=0>
+        	<input type="hidden" id="custId2" name="custId2" value=1>
+			<input type="hidden" id="custId3" name="custId3" value=0>
+        	<input type="hidden" id="custId4" name="custId4" value=0>
+        	<input type="hidden" id="custId5" name="custId5" value=1>
+        	
+			<tr></tr>
+
+        </table>
+        <button class = "submitbtn" type="submit" class="btn btn-primary btn-block btn-large" style="margin-top:20px;"><b>PREDICT</b></button>
+        
+    
+    </form>
+
+   
+   <br>
+   <b style="font-size:30px;color:red;">{{ prediction_text }}</b>
+
+ </div>
+
+
+</body>
+</html>
+</body>
+</html>

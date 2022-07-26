@@ -1,0 +1,30 @@
+
+
+<!DOCTYPE html>
+<html>
+<head>
+<title>Login Page</title>
+</head>
+<link rel="stylesheet" href="../static/login.css">
+<body>
+	<div class="center">
+		<img src="../static/login.png" class="avatar">
+	</div>
+	<div id="main">
+		<center><h2>Login Form</h2></center>
+		
+
+	
+	<form class="myform" action="login.php"  method="post"> 
+		<label><b>Username</b></label><br>
+		<input type="text" name="user" class="input" placeholder="type your username" required="required"/><br><br>
+		<label><b>Password</b></label><br>
+		<input type="password" name="pass" class="input" placeholder="type your password" required="required"/><br><br>
+		<div class="er" id="er1"><?php echo "$error"; ?><br></div>
+		<input type="button" id="login_btn" value="Login" onclick="location.href='{{ url_for('home')}}'" /><br><br>
+		<!--<label><b>Create an account?</b></label>
+		<input type="button" id="register_btn" value="Sign Up" onclick="location.href='register.php'" /><br>-->
+	</form>
+	</div>
+</body>
+</html>
